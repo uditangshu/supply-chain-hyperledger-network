@@ -1,0 +1,49 @@
+{
+    "name": "supply-chain-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Supplier",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Supplier": {
+            "mspid": "SupplierMSP",
+            "peers": [
+                "peer0.supplier.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.supplier.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.supplier.example.com": {
+            "url": "grpcs://localhost:9051",
+            "tlsCACerts": {
+                "path": "../organizations/peerOrganizations/supplier.example.com/tlsca/tlsca.supplier.example.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.supplier.example.com",
+                "hostnameOverride": "peer0.supplier.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.supplier.example.com": {
+            "url": "https://localhost:8054",
+            "caName": "ca-supplier",
+            "tlsCACerts": {
+                "path": "../organizations/peerOrganizations/supplier.example.com/ca/ca.supplier.example.com-cert.pem"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+} 
