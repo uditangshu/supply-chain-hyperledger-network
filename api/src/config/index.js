@@ -3,8 +3,13 @@ require('dotenv').config();
 
 module.exports = {
     server: {
-        port: process.env.PORT || 8000,
-        env: process.env.NODE_ENV || 'development'
+        port: process.env.PORT || 443,
+        env: process.env.NODE_ENV || 'development',
+        https: {
+            enabled: process.env.HTTPS_ENABLED !== 'false',
+            keyPath: process.env.HTTPS_KEY_PATH || './ssl/key.pem',
+            certPath: process.env.HTTPS_CERT_PATH || './ssl/cert.pem'
+        }
     },
     
     fabric: {
