@@ -13,7 +13,15 @@ const createApp = (systemController, productController, fabricService) => {
 
     // Security and parsing middleware
     app.use(helmet());
-    app.use(cors());
+    
+    // CORS configuration for frontend deployment
+    app.use(cors({
+        origin: '*', // Allow all origins for now - you can restrict this to your Vercel domain later
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+        credentials: false
+    }));
+    
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(morgan('combined'));

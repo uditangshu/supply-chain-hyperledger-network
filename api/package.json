@@ -9,15 +9,15 @@
     "test": "node tests/test-api.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "fabric-network": "^2.2.19",
-    "fabric-ca-client": "^2.2.19",
-    "cors": "^2.8.5",
+    "axios": "^1.6.0",
     "body-parser": "^1.20.2",
-    "morgan": "^1.10.0",
-    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "axios": "^1.6.0"
+    "express": "^4.18.2",
+    "fabric-ca-client": "^2.2.19",
+    "fabric-network": "^2.2.19",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
@@ -31,4 +31,4 @@
   ],
   "author": "Supply Chain Network",
   "license": "Apache-2.0"
-} 
+}
