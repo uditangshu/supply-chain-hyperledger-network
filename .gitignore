@@ -235,6 +235,4 @@ api/dist/
 prometheus-grafana/grafana_db/
 prometheus-grafana/prometheus/data/
 
-# Temporary files
-*.tmp
-*.temp
+
