@@ -1,0 +1,49 @@
+{
+    "name": "supply-chain-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Bank",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Bank": {
+            "mspid": "BankMSP",
+            "peers": [
+                "peer0.bank.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.bank.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.bank.example.com": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "path": "../organizations/peerOrganizations/bank.example.com/tlsca/tlsca.bank.example.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.bank.example.com",
+                "hostnameOverride": "peer0.bank.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.bank.example.com": {
+            "url": "https://localhost:7054",
+            "caName": "ca-bank",
+            "tlsCACerts": {
+                "path": "../organizations/peerOrganizations/bank.example.com/ca/ca.bank.example.com-cert.pem"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+} 
